@@ -1,0 +1,25 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+}
+
+plugins { id "io.spring.dependency-management" version "1.0.5.RELEASE" }
+ext {springBootVersion = '2.0.2.RELEASE' }
+
+version = '0.0.1-SNAPSHOT'
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+	compile group: 'net.sf.dozer', name: 'dozer', version: '5.5.1'
+
+	compile project(':jpa')
+	compile project(':common')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('com.h2database:h2')
+}
+
+dependencyManagement {
+	imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+}

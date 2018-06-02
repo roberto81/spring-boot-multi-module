@@ -1,0 +1,15 @@
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+
+    repositories {
+        mavenCentral()
+    }
+
+    group = 'com.example'
+    sourceCompatibility = 1.8
+
+    processResources{
+        exclude('*.properties')
+    }
+}
